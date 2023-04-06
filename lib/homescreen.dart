@@ -3,6 +3,7 @@ import 'package:tugas4/situs_screen.dart';
 import 'login.dart';
 import 'anggota.dart';
 import 'situs_screen.dart';
+import 'stopwatch.dart';
 
 class HomeScreen extends StatelessWidget {
 
@@ -46,7 +47,12 @@ class HomeScreen extends StatelessWidget {
           SizedBox(height: 20),
           ElevatedButton(
             onPressed: () {
-              
+               Navigator.push(
+            context,
+            MaterialPageRoute(
+            builder: (context) => StopwatchScreen(),
+          ),
+          );
             },
             child: Text('Stopwatch'),
           ),
