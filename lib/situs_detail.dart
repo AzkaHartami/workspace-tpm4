@@ -1,6 +1,7 @@
 // import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/material.dart';
 import 'data_situs.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SitusDetail extends StatefulWidget {
   final int situsID;
@@ -12,9 +13,26 @@ class SitusDetail extends StatefulWidget {
 }
 
 class _SitusDetailState extends State<SitusDetail> {
-  @override
-  bool toggle = true;
+  bool toggle = false; 
 
+  late SharedPreferences prefs;
+  
+  @override
+  void initState() {
+    super.initState();
+    loadFavoriteStatus(); // load favorite status when the widget is initialized
+  }
+
+  void loadFavoriteStatus() async {
+  prefs = await SharedPreferences.getInstance();
+  setState(() {
+    toggle = prefs.getBool('${widget.situsID}') ?? false; // load the favorite status for the current situs
+  });
+}
+
+   void saveFavoriteStatus() {
+  prefs.setBool('${widget.situsID}', toggle); // save the favorite status for the current situs
+}
 
 
   Widget build(BuildContext context) {
@@ -22,7 +40,7 @@ class _SitusDetailState extends State<SitusDetail> {
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title: Text("Detail" + rekom.name) ,
+          title: Text("Detail " + rekom.name) ,
           actions: [
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 15),
@@ -38,6 +56,7 @@ class _SitusDetailState extends State<SitusDetail> {
         duration: Duration(seconds: 1),
       ),
     );
+    saveFavoriteStatus();
   },
 ),
 
@@ -140,5 +159,5 @@ class _SitusDetailState extends State<SitusDetail> {
         ]));
   }
 
-  launch(String wikiUrl) {}
+  launch(String situsUrl) {}
 }

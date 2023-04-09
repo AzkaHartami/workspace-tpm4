@@ -25,17 +25,20 @@ class _StopwatchScreenState extends State<StopwatchScreen> {
   }
 
   void _toggleTimer() {
-    if (_isRunning) {
-      _stopwatch.stop();
-      _timer.cancel();
-    } else {
-      _stopwatch.start();
-      _timer = Timer.periodic(Duration(milliseconds: 10), (timer) {
-        setState(() {});
-      });
-    }
-    _isRunning = !_isRunning;
+  if (_isRunning) {
+    _stopwatch.stop();
+    _timer.cancel();
+  } else {
+    _stopwatch.start();
+    _timer = Timer.periodic(Duration(milliseconds: 10), (timer) {
+      setState(() {});
+    });
   }
+  setState(() {
+    _isRunning = !_isRunning;
+  });
+}
+
 
   void _resetTimer() {
     setState(() {
