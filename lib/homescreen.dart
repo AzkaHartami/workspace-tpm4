@@ -3,9 +3,7 @@ import 'package:tugas4/favorite.dart';
 import 'package:tugas4/situs_screen.dart';
 import 'login.dart';
 import 'anggota.dart';
-import 'situs_screen.dart';
 import 'stopwatch.dart';
-import 'favorite.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -30,52 +28,64 @@ class HomeScreen extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 16),
         children: [
           SizedBox(height: 20),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => Anggota(),
-                ),
-              );
-            },
-            child: Text('Daftar Anggota'),
+          Card(
+            child: ListTile(
+              leading: Icon(Icons.people),
+              title: Text('Daftar Anggota'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Anggota(),
+                  ),
+                );
+              },
+            ),
           ),
           SizedBox(height: 20),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => StopwatchScreen(),
-                ),
-              );
-            },
-            child: Text('Stopwatch'),
+          Card(
+            child: ListTile(
+              leading: Icon(Icons.timer),
+              title: Text('Stopwatch'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => StopwatchScreen(),
+                  ),
+                );
+              },
+            ),
           ),
           SizedBox(height: 20),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => SitusScreen(),
-                ),
-              );
-            },
-            child: Text('Situs Rekomendasi'),
+          Card(
+            child: ListTile(
+              leading: Icon(Icons.language),
+              title: Text('Situs Rekomendasi'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => SitusScreen(),
+                  ),
+                );
+              },
+            ),
           ),
           SizedBox(height: 20),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => FavoriteList(),
-                ),
-              );
-            },
-            child: Text('Favorite'),
+          Card(
+            child: ListTile(
+              leading: Icon(Icons.favorite),
+              title: Text('Favorite'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => FavoriteList(),
+                  ),
+                );
+              },
+            ),
           ),
         ],
       ),
