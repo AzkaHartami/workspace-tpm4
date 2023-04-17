@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tugas4/login.dart';
 
 class HelpPage extends StatelessWidget {
   @override
@@ -7,20 +8,24 @@ class HelpPage extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text(
-          'Help',
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 24.0,
+        title: Text('Bantuan'),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.logout),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => LoginScreen()),
+              );
+            },
           ),
-        ),
-        centerTitle: true,
+        ],
       ),
       body: Padding(
         padding: EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
+          children: const [
             Text(
               'Cara Menggunakan Aplikasi:',
               style: TextStyle(
@@ -52,6 +57,22 @@ class HelpPage extends StatelessWidget {
                 color: Colors.black54,
               ),
             ),
+            SizedBox(height: 8.0),
+            Text(
+              '4. Pilih salah satu fitur yang akan di gunakan',
+              style: TextStyle(
+                fontSize: 18.0,
+                color: Colors.black54,
+              ),
+            ),
+            SizedBox(height: 8.0),
+            Text(
+              '5. Untuk logout dari aplikasi, klik tombol di pojok kanan atas',
+              style: TextStyle(
+                fontSize: 18.0,
+                color: Colors.black54,
+              ),
+            ),
             SizedBox(height: 24.0),
             Text(
               'Jika Anda mengalami masalah dengan aplikasi, silakan hubungi kami di alamat email kami.',
@@ -62,7 +83,7 @@ class HelpPage extends StatelessWidget {
             ),
             SizedBox(height: 8.0),
             Text(
-              'Email: helpdesk@contoh.com',
+              'Email: tugas4kami@gmail.com',
               style: TextStyle(
                 fontSize: 20.0,
                 color: Colors.blue,
