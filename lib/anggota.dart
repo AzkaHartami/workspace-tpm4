@@ -11,52 +11,47 @@ class Anggota extends StatelessWidget {
       appBar: AppBar(
         title: Text('Daftar Anggota'),
       ),
-body: ListView(
-   padding: EdgeInsets.symmetric(horizontal: 16),
+      body: ListView(
+        padding: EdgeInsets.symmetric(horizontal: 16),
         children: [
           SizedBox(height: 20),
           ElevatedButton(
             onPressed: () {
               Navigator.push(
-            context,
-            MaterialPageRoute(
-            builder: (context) => Azka(),
-          ),
-          );
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Azka(),
+                ),
+              );
             },
             child: Text('Azka'),
           ),
-
           SizedBox(height: 20),
           ElevatedButton(
             onPressed: () {
               Navigator.push(
-            context,
-            MaterialPageRoute(
-            builder: (context) => Raja(),
-          ),
-          );
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Raja(),
+                ),
+              );
             },
             child: Text('Raja'),
           ),
-
           SizedBox(height: 20),
           ElevatedButton(
             onPressed: () {
               Navigator.push(
-            context,
-            MaterialPageRoute(
-            builder: (context) => Ryzal(),
-          ),
-          );
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Ryzal(),
+                ),
+              );
             },
             child: Text('Ryzal'),
           ),
         ],
-),
-
+      ),
     );
   }
 }
-
-

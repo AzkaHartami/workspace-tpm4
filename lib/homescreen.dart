@@ -8,13 +8,11 @@ import 'stopwatch.dart';
 import 'favorite.dart';
 
 class HomeScreen extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-     
       appBar: AppBar(
-        automaticallyImplyLeading : false,
+        automaticallyImplyLeading: false,
         title: Text('Home Screen'),
         actions: [
           IconButton(
@@ -31,56 +29,51 @@ class HomeScreen extends StatelessWidget {
       body: ListView(
         padding: EdgeInsets.symmetric(horizontal: 16),
         children: [
-
           SizedBox(height: 20),
           ElevatedButton(
             onPressed: () {
               Navigator.push(
-            context,
-            MaterialPageRoute(
-            builder: (context) => Anggota(),
-          ),
-          );
-              
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Anggota(),
+                ),
+              );
             },
             child: Text('Daftar Anggota'),
           ),
-
           SizedBox(height: 20),
           ElevatedButton(
             onPressed: () {
-               Navigator.push(
-            context,
-            MaterialPageRoute(
-            builder: (context) => StopwatchScreen(),
-          ),
-          );
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => StopwatchScreen(),
+                ),
+              );
             },
             child: Text('Stopwatch'),
           ),
-
           SizedBox(height: 20),
           ElevatedButton(
             onPressed: () {
               Navigator.push(
-            context,
-            MaterialPageRoute(
-            builder: (context) => SitusScreen(),
-          ),
-          );
+                context,
+                MaterialPageRoute(
+                  builder: (context) => SitusScreen(),
+                ),
+              );
             },
             child: Text('Situs Rekomendasi'),
           ),
-
-           SizedBox(height: 20),
+          SizedBox(height: 20),
           ElevatedButton(
             onPressed: () {
               Navigator.push(
-            context,
-            MaterialPageRoute(
-            builder: (context) => FavoriteList(),
-          ),
-          );
+                context,
+                MaterialPageRoute(
+                  builder: (context) => FavoriteList(),
+                ),
+              );
             },
             child: Text('Favorite'),
           ),
@@ -89,4 +82,3 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-

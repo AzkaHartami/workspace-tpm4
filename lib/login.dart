@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'homescreen.dart';
+import 'package:tugas4/homePage.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -7,8 +7,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final TextEditingController emailController =
-      TextEditingController(text: '');
+  final TextEditingController emailController = TextEditingController(text: '');
   final TextEditingController passwordController =
       TextEditingController(text: '');
 
@@ -23,13 +22,13 @@ class _LoginScreenState extends State<LoginScreen> {
       // Navigate to home screen or do any other action on successful login
       Navigator.push(
         context,
-         MaterialPageRoute(builder: (context) => HomeScreen()),);
+        MaterialPageRoute(builder: (context) => HomePage()),
+      );
     } else {
       emailController.clear();
       passwordController.clear();
       setState(() {
-        errorMessage =
-            'Email atau Password salah, ulangi lagi';
+        errorMessage = 'Email atau Password salah, ulangi lagi';
       });
     }
   }
@@ -38,8 +37,8 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-    title: Text('Menu Login'),
-  ),
+        title: Text('Menu Login'),
+      ),
       body: Container(
         padding: const EdgeInsets.all(16.0),
         child: Center(
@@ -90,4 +89,3 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 }
- 
