@@ -13,48 +13,63 @@ class SitusScreen extends StatelessWidget {
         title: Text("Rekomendasi Situs"),
       ),
       body: GridView.builder(
-  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-    crossAxisCount: 2,
-    childAspectRatio: 3 / 4,
-  ),
-  itemBuilder: (context, index) {
-    final SitusData place = ListSitus[index];
-    return InkWell(
-      onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) {
-          return SitusDetail(situsID: index);
-        }));
-      },
-      child: Card(
-        child: Column(
-          children: <Widget>[
-            Expanded(
-              child: Image.network(
-                place.image,
-                width: double.infinity,
-                fit: BoxFit.cover,
+        padding: EdgeInsets.all(16),
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          childAspectRatio: 3 / 4,
+          mainAxisSpacing: 16,
+          crossAxisSpacing: 16,
+        ),
+        itemBuilder: (context, index) {
+          final SitusData place = ListSitus[index];
+          return InkWell(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return SitusDetail(situsID: index);
+                  },
+                ),
+              );
+            },
+            child: Card(
+              clipBehavior: Clip.antiAlias,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  Text(place.name),
-                  SizedBox(height: 4),
-                  
+                  Expanded(
+                    child: Image.network(
+                      place.image,
+                      width: double.infinity,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          place.name,
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),
-          ],
-        ),
+          );
+        },
+        itemCount: ListSitus.length,
       ),
     );
-  },
-  itemCount: ListSitus.length,
-),
-
-    );
   }
-
 }
