@@ -36,9 +36,6 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Menu Login'),
-      ),
       body: Container(
         padding: const EdgeInsets.all(16.0),
         child: Center(
@@ -46,9 +43,17 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Container(
               padding: const EdgeInsets.all(16.0),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
+                  Text(
+                    'Login',
+                    style: TextStyle(
+                      fontSize: 24.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(height: 16.0),
                   TextFormField(
                     controller: emailController,
                     keyboardType: TextInputType.emailAddress,
@@ -69,9 +74,12 @@ class _LoginScreenState extends State<LoginScreen> {
                     onFieldSubmitted: (value) => _submitForm(),
                   ),
                   SizedBox(height: 16.0),
-                  ElevatedButton(
-                    onPressed: _submitForm,
-                    child: Text('Submit'),
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      onPressed: _submitForm,
+                      child: Text('Submit'),
+                    ),
                   ),
                   SizedBox(height: 16.0),
                   Text(
